@@ -1,0 +1,105 @@
+.qna {
+	display: grid;
+}
+
+.tooltip {
+	--size: 1.5rem;
+	--rad: 1rem;
+	--mask-q: radial-gradient(100% 100% at 0 0, #0000 99%, #000 102%) 0
+			calc(100% - var(--size)) / var(--size) var(--size) no-repeat border-box,
+		linear-gradient(#000 0 0) padding-box;
+	--mask-a: radial-gradient(100% 100% at 100% 0, #0000 99%, #000 102%) 100%
+			calc(100% - var(--size)) / var(--size) var(--size) no-repeat border-box,
+		linear-gradient(#000 0 0) padding-box;
+	--pad: 1.5rem;
+
+	position: relative;
+	width: min(100%, 50rem);
+	max-width: fit-content;
+	padding-inline: var(--pad);
+	padding-block: var(--pad) calc(var(--pad) * 2);
+	border: var(--size) solid #0000;
+	border-radius: calc(var(--rad) + var(--size));
+	background: border-box
+		radial-gradient(
+			circle var(--pos, at left bottom),
+			hsl(from var(--violet-500) h s l / 0.5) 0%,
+			hsl(from var(--cyan-500) h s l / 0.33) 100%
+		);
+	-webkit-mask: var(--mask);
+
+	&::before {
+		--side: 0.75rem;
+
+		content: "";
+		background-image: url(/public/images/icons/double-tick.svg);
+		background-size: contain;
+		position: absolute;
+		width: 2.5rem;
+		aspect-ratio: 1;
+		bottom: 0.25rem;
+	}
+
+	&.question {
+		--mask: var(--mask-q);
+
+		border-bottom-left-radius: 0;
+
+		&::before {
+			left: var(--side);
+		}
+	}
+
+	&.answer {
+		--mask: var(--mask-a);
+		--pos: at right bottom;
+
+		border-bottom-right-radius: 0;
+		margin-top: calc(var(--size) * -1);
+		place-self: end;
+
+		&::before {
+			right: var(--side);
+		}
+	}
+}
+
+.tooltip__ttl {
+	margin-block: -0.5rem 0.5rem;
+}
+
+.tooltip__img {
+	--logo-bg: var(--cyan-900);
+	--border-width: 0.2em;
+	--border-clr: linear-gradient(
+		-120deg,
+		var(--cyan-300) 0%,
+		var(--violet-300) 100%
+	);
+
+	height: 5em;
+	width: fit-content;
+	backdrop-filter: blur(0);
+	transition: background-color 0.25s ease-in, backdrop-filter 0.25s ease-in;
+
+	&:before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: calc(var(--rad) - var(--pad));
+		border: var(--border-width) solid transparent;
+		background: var(--border-clr) border-box;
+		mask: var(--border-clr) border-box, var(--border-clr) padding-box;
+		mask-composite: subtract;
+	}
+
+	img {
+		padding: 1rem;
+		height: 100%;
+		isolation: isolate;
+	}
+
+	+ p {
+		margin-top: 0.5em;
+	}
+}

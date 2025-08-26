@@ -1,0 +1,9 @@
+.slide {
+	position: relative;
+	counter-increment: slide-counter;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	display: grid;
+	place-items: center start;
+	overflow: hidden;
+}

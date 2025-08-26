@@ -1,0 +1,23 @@
+.layout-body :where(header, main, footer) {
+	display: grid;
+	grid-template-columns: 1fr minmax(min-content, var(--max-content-width)) 1fr;
+	column-gap: 1rem;
+}
+
+:where(header, main, footer) > * {
+	grid-column: 2;
+}
+
+.main-content {
+	counter-reset: slide-counter 0;
+}
+
+.full-bleed {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+
+	> * {
+		grid-column: 2;
+	}
+}

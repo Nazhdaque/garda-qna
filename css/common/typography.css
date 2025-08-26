@@ -1,0 +1,94 @@
+@font-face {
+	font-family: "Geologica";
+	font-display: swap;
+	font-weight: 100 900;
+	src: url(/fonts/Geologica.ttf) format(truetype);
+}
+
+:root {
+	--ff-rg: "Geologica", sans-serif;
+
+	/* --fw-tn: 100; */
+	/* --fw-el: 200; */
+	--fw-lt: 300;
+	/* --fw-rg: 400; */
+	/* --fw-md: 500; */
+	/* --fw-sb: 600; */
+	--fw-bd: 700;
+	--fw-eb: 800;
+	/* --fw-bk: 900; */
+
+	--fs-4xl: 5.61rem;
+	--fs-3xl: 4.209rem;
+	--fs-2xl: 3.157rem;
+	--fs-xl: 2.369rem;
+	--fs-lg: 1.777rem;
+	--fs-md: 1.333rem;
+	--fs-rg: 1rem;
+	--fs-xs: 0.75rem;
+
+	--ls-xs: -0.004em;
+	--ls-sm: -0.002em;
+
+	font-size: clamp(1rem, 1.786vw + 0.143rem, 1.25rem);
+	line-height: 1.3;
+}
+
+body {
+	font-family: var(--ff-rg);
+	/* 16px@768 -> 20px@992 */
+	font-weight: var(--fw-lt);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeSpeed;
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.fnt-4xl {
+	font-size: var(--fs-4xl);
+}
+.fnt-3xl {
+	font-size: var(--fs-3xl);
+}
+.fnt-2xl {
+	font-size: var(--fs-2xl);
+}
+.fnt-xl {
+	font-size: var(--fs-xl);
+}
+.fnt-lg {
+	font-size: var(--fs-lg);
+}
+.fnt-md {
+	font-size: var(--fs-md);
+}
+.fnt-rg {
+	font-size: var(--fs-rg);
+}
+.fnt-xs {
+	font-size: var(--fs-xs);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+:where(.fnt-lg, .fnt-xl, .fnt-2xl, .fnt-3xl, .fnt-4xl) {
+	font-weight: var(--fw-eb);
+}
+:where(.fnt-md) {
+	font-weight: var(--fw-bd);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+:where(.fnt-lg, .fnt-xl, .fnt-2xl, .fnt-3xl, .fnt-4xl) {
+	letter-spacing: var(--ls-xs);
+}
+:where(.fnt-rg, .fnt-xs) {
+	letter-spacing: var(--ls-sm);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.caps {
+	text-transform: uppercase;
+}
+
+.ital {
+	font-style: italic;
+}
