@@ -4,6 +4,7 @@
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 	display: grid;
-	place-items: center start;
-	overflow: hidden;
+	align-items: center;
+	padding-block: 1rem;
+	color: var(--white);
 }

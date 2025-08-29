@@ -1,0 +1,44 @@
+.brand-logo {
+	--logo-x: 487;
+	--logo-y: 80;
+	--asp: var(--logo-x) / var(--logo-y);
+	--img-w: min(var(--size) * 2, 50dvw);
+	--fit: contain;
+
+	width: var(--img-w);
+	transition: transform 0.25s ease;
+}
+
+.brand-logo:focus-visible {
+	--rad: var(--rad-inner);
+}
+.brand-logo:where(:focus-visible, :hover) {
+	transform: scale(1.05);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.brand-logo.slide-logo {
+	--size: 4.5rem;
+	--marg: calc(var(--size) / 2);
+
+	position: absolute !important;
+	right: 0;
+	margin: var(--marg) var(--marg) 0 0;
+
+	&::after {
+		position: absolute;
+		content: "";
+		top: -249%;
+		right: -30%;
+		z-index: 2;
+		width: calc(var(--size) * 1.125);
+		aspect-ratio: 1;
+		transform: rotateX(50deg);
+		background-image: linear-gradient(
+			66deg,
+			var(--cyan-500) 0,
+			var(--violet-500) 85%
+		);
+		clip-path: polygon(100% 0, 0 70%, 100% 30%);
+	}
+}

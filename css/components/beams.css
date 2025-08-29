@@ -30,6 +30,6 @@
 	background-image: linear-gradient(
 		to left,
 		hsl(from var(--cyan-500) h s l / 0.5) 20%,
-		hsl(from var(--violet-500) h s l / 1) 60%z
+		hsl(from var(--violet-500) h s l / 1) 60%
 	);
 }

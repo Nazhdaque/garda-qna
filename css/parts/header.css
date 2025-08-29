@@ -16,21 +16,3 @@
 	min-height: var(--size);
 	align-items: center;
 }
-
-.brand-logo {
-	--logo-x: 487;
-	--logo-y: 80;
-	--asp: var(--logo-x) / var(--logo-y);
-	--img-w: min(var(--size) * 2, 50dvw);
-	--fit: contain;
-
-	width: var(--img-w);
-	transition: transform 0.25s ease;
-}
-
-.brand-logo:focus-visible {
-	--rad: var(--rad-inner);
-}
-.brand-logo:where(:focus-visible, :hover) {
-	transform: scale(1.05);
-}

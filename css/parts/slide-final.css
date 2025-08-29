@@ -1,0 +1,19 @@
+.slide-final {
+	display: grid;
+	grid-template-rows: 1fr min-content;
+	padding: 3rem;
+	place-items: end start;
+	row-gap: 4rem;
+	color: var(--white);
+}
+
+.lampshade {
+	position: absolute;
+	top: 0;
+	right: -2rem;
+	height: 100%;
+	aspect-ratio: 460.88 / 463.94;
+	background-image: url(/public/images/lampshade.svg);
+	background-repeat: no-repeat;
+	z-index: -1;
+}

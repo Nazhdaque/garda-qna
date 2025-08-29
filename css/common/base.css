@@ -7,9 +7,9 @@
 	text-wrap: pretty;
 }
 
-* {
+/* * {
 	color: var(--clr-txt, chartreuse);
-}
+} */
 
 ::selection {
 	background-color: hsl(from var(--violet-500-alt) h s l / 0.33);
@@ -42,7 +42,7 @@
 	text-wrap: balance;
 }
 
-:where(p + p) {
+:where(p + p, p + ul) {
 	margin-top: 0.66em;
 }
 
@@ -63,58 +63,4 @@ body {
 
 body:has(dialog[open]) {
 	overflow: hidden;
-}
-
-/* .demo-bg { */
-/* https://css-generators.com */
-/* --s: 4rem;
-	--c1: hsl(0, 0%, 12%);
-	--c2: hsl(0, 0%, 9%);
-	--c3: hsl(0, 0%, 6%);
-
-	--_g: 0 120deg, #0000 0;
-	background: conic-gradient(
-			from 0deg at calc(500% / 6) calc(100% / 3),
-			var(--c3) var(--_g)
-		),
-		conic-gradient(
-			from -120deg at calc(100% / 6) calc(100% / 3),
-			var(--c2) var(--_g)
-		),
-		conic-gradient(
-			from 120deg at calc(100% / 3) calc(500% / 6),
-			var(--c1) var(--_g)
-		),
-		conic-gradient(
-			from 120deg at calc(200% / 3) calc(500% / 6),
-			var(--c1) var(--_g)
-		),
-		conic-gradient(
-			from -180deg at calc(100% / 3) 50%,
-			var(--c2) 60deg,
-			var(--c1) var(--_g)
-		),
-		conic-gradient(
-			from 60deg at calc(200% / 3) 50%,
-			var(--c1) 60deg,
-			var(--c3) var(--_g)
-		),
-		conic-gradient(
-			from -60deg at 50% calc(100% / 3),
-			var(--c1) 120deg,
-			var(--c2) 0 240deg,
-			var(--c3) 0
-		);
-
-	background-size: calc(var(--s) * 1.732) var(--s);
-	background-position: center;
-	background-attachment: fixed;
-} */
-
-.demo-bg {
-	background: url(images/demo-1-xl.webp);
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	backdrop-filter: brightness(33%);
 }

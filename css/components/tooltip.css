@@ -1,17 +1,18 @@
-.qna {
-	display: grid;
-}
-
 .tooltip {
 	--size: 1.5rem;
-	--rad: 1rem;
+	--rad: 1.5rem;
+	--pad: 1.5rem;
 	--mask-q: radial-gradient(100% 100% at 0 0, #0000 99%, #000 102%) 0
 			calc(100% - var(--size)) / var(--size) var(--size) no-repeat border-box,
 		linear-gradient(#000 0 0) padding-box;
 	--mask-a: radial-gradient(100% 100% at 100% 0, #0000 99%, #000 102%) 100%
 			calc(100% - var(--size)) / var(--size) var(--size) no-repeat border-box,
 		linear-gradient(#000 0 0) padding-box;
-	--pad: 1.5rem;
+	--mask-s: linear-gradient(#000 0 0) padding-box,
+		radial-gradient(100% 100% at 100% 100%, #0000 99%, #000 102%)
+			calc(var(--_p) + var(--size) / 2) var(--_m),
+		radial-gradient(100% 100% at 0 100%, #0000 99%, #000 102%)
+			calc(var(--_p) - var(--size) / 2) var(--_m);
 
 	position: relative;
 	width: min(100%, 50rem);
@@ -27,6 +28,8 @@
 			hsl(from var(--cyan-500) h s l / 0.33) 100%
 		);
 	-webkit-mask: var(--mask);
+	border: var(--size) solid #0000;
+	backdrop-filter: blur(15px) brightness(0.66);
 
 	&::before {
 		--side: 0.75rem;
@@ -35,9 +38,22 @@
 		background-image: url(/public/images/icons/double-tick.svg);
 		background-size: contain;
 		position: absolute;
-		width: 2.5rem;
+		width: 2rem;
 		aspect-ratio: 1;
 		bottom: 0.25rem;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		border-radius: calc(var(--rad) + var(--size));
+		background: border-box
+			radial-gradient(
+				circle var(--pos, at left bottom),
+				hsl(from var(--violet-500) h s l / 0.5) 0%,
+				hsl(from var(--cyan-500) h s l / 0.33) 100%
+			);
+		-webkit-mask: var(--mask);
 	}
 
 	&.question {
@@ -62,9 +78,31 @@
 			right: var(--side);
 		}
 	}
+
+	&.single {
+		--pos: at center 110%;
+		--mask: var(--mask-s);
+		--position: 50%;
+		--_m: 100% / var(--size) var(--size) no-repeat;
+		--_p: clamp(
+			var(--rad) + 3 * var(--size) / 2,
+			var(--position),
+			100% - var(--rad) - 3 * var(--size) / 2
+		);
+
+		place-self: center;
+
+		&::before {
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+	}
 }
 
 .tooltip__ttl {
+	font-size: var(--fs-md);
+	font-weight: var(--fw-bd);
 	margin-block: -0.5rem 0.5rem;
 }
 
@@ -77,10 +115,10 @@
 		var(--violet-300) 100%
 	);
 
-	height: 5em;
+	height: 4em;
 	width: fit-content;
+	margin-bottom: 1rem;
 	backdrop-filter: blur(0);
-	transition: background-color 0.25s ease-in, backdrop-filter 0.25s ease-in;
 
 	&:before {
 		content: "";
@@ -96,10 +134,32 @@
 	img {
 		padding: 1rem;
 		height: 100%;
-		isolation: isolate;
 	}
+}
 
-	+ p {
-		margin-top: 0.5em;
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.float-l {
+	float: left;
+	height: var(--img-h);
+	margin: var(--leading) var(--fs-rg) 0 0;
+}
+.tooltip__body:has(.float-l) {
+	--unit: calc(1em * var(--lh-rg));
+	--leading: calc(var(--unit) - 1em);
+	--img-h: calc(var(--unit) * var(--size-x, 3) + var(--leading));
+	/* --img-h: calc(var(--unit) * var(--size-x, 3) - var(--leading)); */
+	--size-x: 5;
+
+	margin-top: calc(var(--leading) * -1);
+}
+.tooltip__ttl + .tooltip__body:has(.float-l) {
+	margin-top: 0;
+}
+
+.tooltip.single {
+	.tooltip__img {
+		width: 100%;
+		height: auto;
+		margin-top: 0.5rem;
 	}
 }

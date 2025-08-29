@@ -1,3 +1,128 @@
+.overlay-1 {
+	background-image: linear-gradient(
+		90deg,
+		hsl(0, 0%, 0%, 0.33) 25%,
+		hsl(0, 0%, 0%, 0) 100%
+	);
+}
+
+.overlay-2 {
+	background-image: linear-gradient(
+		0deg,
+		hsl(0, 0%, 0%, 0.75) 0%,
+		hsl(0, 0%, 0%, 0) 50%
+	);
+}
+
+.bg-solid {
+	background-color: var(--graphit-700);
+	overflow: hidden;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		width: var(--size);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		filter: blur(100vw);
+		background-repeat: no-repeat;
+	}
+
+	&::before {
+		--size: 130rem;
+
+		top: calc(var(--size) * -0.7);
+		left: calc(var(--size) * -0.6);
+
+		background: radial-gradient(
+			circle,
+			hsl(from var(--violet-100) h s l / 0.15) 30%,
+			hsl(from var(--violet-500) h s l / 0.1) 35%,
+			hsl(from var(--cyan-500) h s l / 0.075) 50%,
+			hsl(from var(--cyan-300) h s l / 0.05) 60%
+		);
+	}
+
+	/* &::after {
+		--size: 120rem;
+
+		top: calc(var(--size) * -0.6);
+		left: calc(var(--size) * -0.6);
+
+		background: radial-gradient(
+			circle,
+			hsl(from var(--white) h s l / 0.2) 0%,
+			hsl(from var(--violet-500) h s l / 0.06) 33%,
+			hsl(from var(--cyan-500) h s l / 0.08) 66%
+		);
+	} */
+}
+
+.bg-img {
+	background: url(images/img-040.webp);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top left;
+
+	/* &::before {
+		--overlay: hsl(0, 0%, 0%, 0.25);
+
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: linear-gradient(var(--overlay), var(--overlay));
+		z-index: -1;
+	} */
+}
+
+/* .demo-bg { */
+/* https://css-generators.com */
+/* --s: 4rem;
+	--c1: hsl(0, 0%, 12%);
+	--c2: hsl(0, 0%, 9%);
+	--c3: hsl(0, 0%, 6%);
+
+	--_g: 0 120deg, #0000 0;
+	background: conic-gradient(
+			from 0deg at calc(500% / 6) calc(100% / 3),
+			var(--c3) var(--_g)
+		),
+		conic-gradient(
+			from -120deg at calc(100% / 6) calc(100% / 3),
+			var(--c2) var(--_g)
+		),
+		conic-gradient(
+			from 120deg at calc(100% / 3) calc(500% / 6),
+			var(--c1) var(--_g)
+		),
+		conic-gradient(
+			from 120deg at calc(200% / 3) calc(500% / 6),
+			var(--c1) var(--_g)
+		),
+		conic-gradient(
+			from -180deg at calc(100% / 3) 50%,
+			var(--c2) 60deg,
+			var(--c1) var(--_g)
+		),
+		conic-gradient(
+			from 60deg at calc(200% / 3) 50%,
+			var(--c1) 60deg,
+			var(--c3) var(--_g)
+		),
+		conic-gradient(
+			from -60deg at 50% calc(100% / 3),
+			var(--c1) 120deg,
+			var(--c2) 0 240deg,
+			var(--c3) 0
+		);
+
+	background-size: calc(var(--s) * 1.732) var(--s);
+	background-position: center;
+	background-attachment: fixed;
+} */
+
 /* |||||||||| |||||||||| |||||||||| |||||||||| images */
 .img-box {
 	position: relative;
@@ -137,7 +262,7 @@
 /* |||||||||| |||||||||| |||||||||| |||||||||| colors */
 .txt-gradient {
 	background-image: linear-gradient(
-		-120deg,
+		var(--deg, 90deg),
 		var(--cyan-300) 0%,
 		var(--violet-300) 100%
 	);
@@ -151,6 +276,10 @@
 /* |||||||||| |||||||||| |||||||||| |||||||||| display */
 .d-none {
 	display: none;
+}
+
+.d-grid {
+	display: grid;
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| a11y */

@@ -30,8 +30,10 @@
 	--ls-xs: -0.004em;
 	--ls-sm: -0.002em;
 
+	--lh-rg: 1.3;
+
 	font-size: clamp(1rem, 1.786vw + 0.143rem, 1.25rem);
-	line-height: 1.3;
+	line-height: var(--lh-rg);
 }
 
 body {
@@ -71,16 +73,18 @@ body {
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 :where(.fnt-lg, .fnt-xl, .fnt-2xl, .fnt-3xl, .fnt-4xl) {
 	font-weight: var(--fw-eb);
+	line-height: 1.2;
 }
 :where(.fnt-md) {
 	font-weight: var(--fw-bd);
+	line-height: 1.2;
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 :where(.fnt-lg, .fnt-xl, .fnt-2xl, .fnt-3xl, .fnt-4xl) {
 	letter-spacing: var(--ls-xs);
 }
-:where(.fnt-rg, .fnt-xs) {
+:where(.fnt-md, .fnt-rg, .fnt-xs) {
 	letter-spacing: var(--ls-sm);
 }
 
