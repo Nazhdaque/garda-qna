@@ -14,52 +14,6 @@
 	);
 }
 
-.bg-solid {
-	background-color: var(--graphit-700);
-	overflow: hidden;
-
-	&::before,
-	&::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-		width: var(--size);
-		aspect-ratio: 1;
-		border-radius: 50%;
-		filter: blur(100vw);
-		background-repeat: no-repeat;
-	}
-
-	&::before {
-		--size: 130rem;
-
-		top: calc(var(--size) * -0.7);
-		left: calc(var(--size) * -0.6);
-
-		background: radial-gradient(
-			circle,
-			hsl(from var(--violet-100) h s l / 0.15) 30%,
-			hsl(from var(--violet-500) h s l / 0.1) 35%,
-			hsl(from var(--cyan-500) h s l / 0.075) 50%,
-			hsl(from var(--cyan-300) h s l / 0.05) 60%
-		);
-	}
-
-	/* &::after {
-		--size: 120rem;
-
-		top: calc(var(--size) * -0.6);
-		left: calc(var(--size) * -0.6);
-
-		background: radial-gradient(
-			circle,
-			hsl(from var(--white) h s l / 0.2) 0%,
-			hsl(from var(--violet-500) h s l / 0.06) 33%,
-			hsl(from var(--cyan-500) h s l / 0.08) 66%
-		);
-	} */
-}
-
 .bg-img {
 	background: url(images/img-040.webp);
 	background-repeat: no-repeat;
