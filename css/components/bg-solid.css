@@ -1,6 +1,9 @@
 .bg-solid {
 	background-color: var(--graphit-700);
 	overflow: hidden;
+	position: absolute;
+	inset: 0;
+	grid-column: 1;
 }
 
 .glow-corners,
@@ -9,29 +12,31 @@
 		circle,
 		hsl(from var(--violet-100) h s l / 0.15) 30%,
 		hsl(from var(--violet-500) h s l / 0.1) 35%,
-		hsl(from var(--cyan-500) h s l / 0.075) 50%,
-		hsl(from var(--cyan-300) h s l / 0.05) 60%
+		hsl(from var(--cyan-500) h s l / 0.05) 50%,
+		hsl(from var(--cyan-300) h s l / 0.025) 60%,
+		hsl(from var(--graphit-700) h s l / 1) 100%
 	);
 	--glow-right: radial-gradient(
 		circle,
 		hsl(from var(--cyan-100) h s l / 0.15) 0%,
 		hsl(from var(--cyan-500) h s l / 0.075) 25%,
-		hsl(from var(--violet-500) h s l / 0.05) 50%,
-		hsl(from var(--violet-300) h s l / 0.05) 75%
+		hsl(from var(--violet-500) h s l / 0.025) 50%,
+		hsl(from var(--violet-300) h s l / 0.025) 75%,
+		hsl(from var(--graphit-700) h s l / 1) 100%
 	);
 	--glow-bottom: radial-gradient(
 		circle,
 		hsl(from var(--cyan-100) h s l / 0.15) 5%,
 		hsl(from var(--cyan-300) h s l / 0.075) 25%,
 		hsl(from var(--violet-500) h s l / 0.05) 33%,
-		hsl(from var(--violet-300) h s l / 0.05) 66%
+		hsl(from var(--violet-300) h s l / 0.05) 66%,
+		hsl(from var(--graphit-700) h s l / 1) 100%
 	);
 
 	&::before,
 	&::after {
 		content: "";
 		position: absolute;
-		inset: 0;
 		width: var(--size);
 		aspect-ratio: 1;
 		border-radius: 50%;
@@ -44,15 +49,15 @@
 	&::before {
 		--size: 130rem;
 
-		top: calc(var(--size) * -0.7);
-		left: calc(var(--size) * -0.6);
+		top: calc(var(--size) * -0.6);
+		left: calc(var(--size) * -0.7);
 		background: var(--glow-left);
 	}
 
 	&::after {
 		--size: 50rem;
 
-		top: calc(var(--size) * -0.55);
+		top: calc(var(--size) * -0.6);
 		left: calc(var(--size) * 1);
 		background: var(--glow-right);
 	}
@@ -62,8 +67,51 @@
 	&::before {
 		--size: 30rem;
 
-		top: calc(var(--size) * 1.1);
+		bottom: calc(var(--size) * -0.8);
 		left: calc(var(--size) * 1.2);
 		background: var(--glow-bottom);
+	}
+}
+
+.figure {
+	position: absolute;
+	width: 6rem;
+	aspect-ratio: 260 / 584;
+	z-index: 1;
+}
+
+.lines {
+	position: absolute;
+	right: 0;
+	width: 32rem;
+	aspect-ratio: 1060 / 748;
+	z-index: 1;
+}
+
+.bg-solid.final {
+	.slide-logo,
+	.glow-bottom,
+	.figure {
+		display: none;
+	}
+	.glow-corners {
+		--glow-right: radial-gradient(
+			circle,
+			hsl(from var(--cyan-500) h s l / 0.25) 0%,
+			hsl(from var(--violet-500) h s l / 0.025) 50%,
+			hsl(from var(--graphit-700) h s l / 1) 100%
+		);
+
+		&::before {
+			display: none;
+		}
+
+		&::after {
+			--size: 100rem;
+
+			top: calc(var(--size) * -0.5);
+			left: calc(var(--size) * 0.33);
+			background: var(--glow-right);
+		}
 	}
 }

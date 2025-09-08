@@ -1,19 +1,48 @@
 .slide-final {
 	display: grid;
-	grid-template-rows: 1fr min-content;
+	grid-template-rows: min-content min-content;
+	/* grid-template-columns: repeat(2, 1fr); */
 	padding: 3rem;
-	place-items: end start;
-	row-gap: 4rem;
+	place-items: start;
+	/* row-gap: 4rem; */
 	color: var(--white);
+
+	.ttl {
+		margin-bottom: 1em;
+	}
+
+	.ttl + p {
+		text-wrap: balance;
+		max-width: 25ch;
+	}
+}
+
+.thanks {
+	--img-size: 10rem;
+
+	display: grid;
+	grid-template-columns: max-content auto;
+
+	.ttl {
+		grid-column: 1 / -1;
+	}
+
+	p {
+		font-size: var(--fs-md);
+	}
+
+	.img-box {
+		place-self: start;
+	}
 }
 
 .lampshade {
 	position: absolute;
 	top: 0;
-	right: -2rem;
+	right: -3%;
 	height: 100%;
-	aspect-ratio: 460.88 / 463.94;
-	background-image: url(/public/images/lampshade.svg);
+	aspect-ratio: 1384 / 1384;
+	background-image: url(images/lampshade-l.png);
 	background-repeat: no-repeat;
-	z-index: -1;
+	background-size: cover;
 }

@@ -7,4 +7,5 @@
 	align-items: center;
 	padding-block: 1rem;
 	color: var(--white);
+	z-index: 1;
 }

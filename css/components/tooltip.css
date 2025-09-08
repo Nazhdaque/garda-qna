@@ -29,7 +29,7 @@
 		);
 	-webkit-mask: var(--mask);
 	border: var(--size) solid #0000;
-	backdrop-filter: blur(15px) brightness(0.66);
+	backdrop-filter: blur(12px) brightness(0.66) contrast(0.75);
 
 	&::before {
 		--side: 0.75rem;
@@ -43,7 +43,7 @@
 		bottom: 0.25rem;
 	}
 
-	&::after {
+	/* &::after {
 		content: "";
 		position: absolute;
 		border-radius: calc(var(--rad) + var(--size));
@@ -54,7 +54,7 @@
 				hsl(from var(--cyan-500) h s l / 0.33) 100%
 			);
 		-webkit-mask: var(--mask);
-	}
+	} */
 
 	&.question {
 		--mask: var(--mask-q);

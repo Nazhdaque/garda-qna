@@ -18,7 +18,7 @@
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 .brand-logo.slide-logo {
-	--size: 4.5rem;
+	--size: 6rem;
 	--marg: calc(var(--size) / 2);
 
 	position: absolute !important;
