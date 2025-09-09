@@ -1,39 +1,15 @@
 .slide-final {
 	display: grid;
-	grid-template-rows: min-content min-content;
-	/* grid-template-columns: repeat(2, 1fr); */
-	padding: 3rem;
-	place-items: start;
-	/* row-gap: 4rem; */
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto min-content auto auto;
+	grid-template-areas:
+		"thx  thx"
+		"tg   qr"
+		"wait wait"
+		"logo date";
+
 	color: var(--white);
-
-	.ttl {
-		margin-bottom: 1em;
-	}
-
-	.ttl + p {
-		text-wrap: balance;
-		max-width: 25ch;
-	}
-}
-
-.thanks {
-	--img-size: 10rem;
-
-	display: grid;
-	grid-template-columns: max-content auto;
-
-	.ttl {
-		grid-column: 1 / -1;
-	}
-
-	p {
-		font-size: var(--fs-md);
-	}
-
-	.img-box {
-		place-self: start;
-	}
+	padding-block: 3rem;
 }
 
 .lampshade {
@@ -45,4 +21,48 @@
 	background-image: url(images/lampshade-l.png);
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.thanks {
+	grid-area: thx;
+	place-self: center start;
+}
+
+.tg {
+	grid-area: tg;
+	font-size: var(--fs-md);
+	text-wrap: balance;
+	max-width: 25ch;
+}
+
+.wait {
+	grid-area: wait;
+	font-size: var(--fs-lg);
+	place-self: center start;
+}
+
+.qr {
+	--img-h: 8rem;
+	--asp: 1;
+
+	grid-area: qr;
+	margin-top: 0.575rem;
+	margin-left: 1rem;
+}
+
+.sa25-logo {
+	--img-h: 8rem;
+	--asp: 419 / 177;
+
+	grid-area: logo;
+	place-self: end start;
+}
+
+.sa25-date {
+	--img-h: 5rem;
+	--asp: 402 / 135;
+
+	grid-area: date;
+	place-self: end center;
+	margin-left: 30%;
 }

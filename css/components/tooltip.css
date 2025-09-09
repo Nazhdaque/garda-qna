@@ -15,7 +15,7 @@
 			calc(var(--_p) - var(--size) / 2) var(--_m);
 
 	position: relative;
-	width: min(100%, 50rem);
+	width: min(100%, 42rem);
 	max-width: fit-content;
 	padding-inline: var(--pad);
 	padding-block: var(--pad) calc(var(--pad) * 2);
@@ -29,7 +29,6 @@
 		);
 	-webkit-mask: var(--mask);
 	border: var(--size) solid #0000;
-	backdrop-filter: blur(12px) brightness(0.66) contrast(0.75);
 
 	&::before {
 		--side: 0.75rem;
@@ -110,7 +109,7 @@
 	--logo-bg: var(--cyan-900);
 	--border-width: 0.2em;
 	--border-clr: linear-gradient(
-		-120deg,
+		var(--border-deg, 135deg),
 		var(--cyan-300) 0%,
 		var(--violet-300) 100%
 	);
@@ -158,6 +157,8 @@
 
 .tooltip.single {
 	.tooltip__img {
+		--border-deg: 180deg;
+
 		width: 100%;
 		height: auto;
 		margin-top: 0.5rem;

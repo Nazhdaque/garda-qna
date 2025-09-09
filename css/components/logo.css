@@ -24,6 +24,7 @@
 	position: absolute !important;
 	right: 0;
 	margin: var(--marg) var(--marg) 0 0;
+	z-index: 1;
 
 	&::after {
 		position: absolute;

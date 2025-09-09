@@ -1,0 +1,26 @@
+.bg-img {
+	--overlay-1: linear-gradient(
+		90deg,
+		hsl(0, 0%, 0%, 0.33) 33%,
+		hsl(0, 0%, 0%, 0) 66%
+	);
+
+	background: var(--overlay-1), url(images/img-040.webp);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top left;
+
+	/* &::before {
+		--overlay: hsl(0, 0%, 0%, 0.25);
+
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: linear-gradient(var(--overlay), var(--overlay));
+		z-index: -1;
+	} */
+
+	.tooltip {
+		backdrop-filter: blur(12px) brightness(0.66) contrast(0.75);
+	}
+}

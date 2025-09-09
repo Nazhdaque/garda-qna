@@ -10,6 +10,7 @@
 @import url(./components/tooltip.css) layer(components);
 @import url(./components/beams.css) layer(components);
 @import url(./components/bg-solid.css) layer(components);
+@import url(./components/bg-img.css) layer(components);
 @import url(./components/list-bullet.css) layer(components);
 @import url(./components/logo.css) layer(components);
 

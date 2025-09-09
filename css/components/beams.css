@@ -14,14 +14,23 @@
 }
 
 .beam-1::after {
-	top: 0%;
-	left: -2%;
-	clip-path: polygon(0% 0%, 55% 100%, 15% 100%);
+	top: -3%;
+	left: -0.25%;
+	clip-path: polygon(0% 0%, 56% 100%, 11% 100%);
 	background-image: linear-gradient(
 		180deg,
 		hsl(from var(--cyan-500) h s l / 0.33) 20%,
 		hsl(from var(--violet-500) h s l / 0.66) 60%
 	);
+
+	/* top: -17%;
+	left: 0%;
+	clip-path: polygon(0% 0%, 44% 100%, 0% 100%);
+	background-image: linear-gradient(
+		180deg,
+		hsl(from var(--cyan-500) h s l / 0.33) 20%,
+		hsl(from var(--violet-500) h s l / 0.66) 60%
+	); */
 }
 
 /* -1% -5%, 35% 70%, 10% 80% */

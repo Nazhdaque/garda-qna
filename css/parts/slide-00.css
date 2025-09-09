@@ -1,7 +1,7 @@
 .slide-0 {
 	display: grid;
 	grid-template-rows: 1fr min-content;
-	padding: 3rem;
+	padding: 3rem 0;
 	place-items: end start;
 	row-gap: 4rem;
 	z-index: 1;
@@ -44,4 +44,5 @@
 	padding: 0.66em 1.33em;
 	border-radius: 1rem;
 	position: relative;
+	filter: drop-shadow(0.1rem 0.1rem 0.25rem var(--graphit-700));
 }
