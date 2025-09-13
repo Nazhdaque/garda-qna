@@ -8,6 +8,7 @@
 @import url(./components/scroll-snap.css) layer(components);
 @import url(./components/slide-number.css) layer(components);
 @import url(./components/tooltip.css) layer(components);
+@import url(./components/bubble.css) layer(components);
 @import url(./components/beams.css) layer(components);
 @import url(./components/bg-solid.css) layer(components);
 @import url(./components/bg-img.css) layer(components);
@@ -16,10 +17,7 @@
 
 @import url(./parts/header.css) layer(parts);
 @import url(./parts/slides.css) layer(parts);
-@import url(./parts/slide-00.css) layer(parts);
-/* @import url(./parts/slide-01.css) layer(parts); */
-/* @import url(./parts/slide-02.css) layer(parts); */
-/* @import url(./parts/slide-03.css) layer(parts); */
+@import url(./parts/slide-0.css) layer(parts);
 @import url(./parts/slide-final.css) layer(parts);
 @import url(./parts/footer.css) layer(parts);
 

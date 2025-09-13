@@ -1,11 +1,13 @@
 .slide {
 	position: relative;
-	counter-increment: slide-counter;
-	-ms-overflow-style: none;
-	scrollbar-width: none;
 	display: grid;
+	place-self: center;
+	grid-auto-rows: min-content;
+	row-gap: 1.5rem;
 	align-items: center;
 	padding-block: 1rem;
 	color: var(--white);
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 	z-index: 1;
 }

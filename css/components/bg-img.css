@@ -19,8 +19,4 @@
 		background-image: linear-gradient(var(--overlay), var(--overlay));
 		z-index: -1;
 	} */
-
-	.tooltip {
-		backdrop-filter: blur(12px) brightness(0.66) contrast(0.75);
-	}
 }

@@ -1,7 +1,20 @@
 .tooltip {
-	--size: 1.5rem;
-	--rad: 1.5rem;
 	--pad: 1.5rem;
+	--rad: 1.5rem;
+	--size: 1.5rem;
+
+	position: relative;
+	width: min(100%, 40rem);
+	max-width: fit-content;
+	padding-inline: var(--pad);
+	padding-block: var(--pad) calc(var(--pad) * 2);
+
+	&:has(.right) {
+		place-self: start end;
+	}
+}
+
+.tooltip__bg {
 	--mask-q: radial-gradient(100% 100% at 0 0, #0000 99%, #000 102%) 0
 			calc(100% - var(--size)) / var(--size) var(--size) no-repeat border-box,
 		linear-gradient(#000 0 0) padding-box;
@@ -14,11 +27,11 @@
 		radial-gradient(100% 100% at 0 100%, #0000 99%, #000 102%)
 			calc(var(--_p) - var(--size) / 2) var(--_m);
 
-	position: relative;
-	width: min(100%, 42rem);
-	max-width: fit-content;
-	padding-inline: var(--pad);
-	padding-block: var(--pad) calc(var(--pad) * 2);
+	position: absolute;
+	inset: calc(var(--pad) * -1);
+	width: calc(100% + var(--pad) * 2);
+	height: calc(100% + var(--pad) * 2);
+	z-index: -1;
 	border: var(--size) solid #0000;
 	border-radius: calc(var(--rad) + var(--size));
 	background: border-box
@@ -42,20 +55,7 @@
 		bottom: 0.25rem;
 	}
 
-	/* &::after {
-		content: "";
-		position: absolute;
-		border-radius: calc(var(--rad) + var(--size));
-		background: border-box
-			radial-gradient(
-				circle var(--pos, at left bottom),
-				hsl(from var(--violet-500) h s l / 0.5) 0%,
-				hsl(from var(--cyan-500) h s l / 0.33) 100%
-			);
-		-webkit-mask: var(--mask);
-	} */
-
-	&.question {
+	&.left {
 		--mask: var(--mask-q);
 
 		border-bottom-left-radius: 0;
@@ -65,20 +65,18 @@
 		}
 	}
 
-	&.answer {
+	&.right {
 		--mask: var(--mask-a);
 		--pos: at right bottom;
 
 		border-bottom-right-radius: 0;
-		margin-top: calc(var(--size) * -1);
-		place-self: end;
 
 		&::before {
 			right: var(--side);
 		}
 	}
 
-	&.single {
+	&.center {
 		--pos: at center 110%;
 		--mask: var(--mask-s);
 		--position: 50%;
@@ -97,6 +95,10 @@
 			margin: auto;
 		}
 	}
+}
+
+.bg-img .tooltip__bg {
+	backdrop-filter: blur(12px) brightness(0.66) contrast(0.75);
 }
 
 .tooltip__ttl {
@@ -155,7 +157,9 @@
 	margin-top: 0;
 }
 
-.tooltip.single {
+.tooltip:has(.center) {
+	place-self: center;
+
 	.tooltip__img {
 		--border-deg: 180deg;
 

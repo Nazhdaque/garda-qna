@@ -2,8 +2,10 @@
 	--img-size: 3em;
 	--overflow: calc(var(--img-size) * -0.15);
 
+	counter-increment: slide-counter;
 	font-size: var(--fs-xs);
 	font-weight: var(--fw-eb);
+	color: var(--white);
 	line-height: 1;
 	display: grid;
 	place-items: center;
@@ -14,6 +16,7 @@
 	top: var(--overflow);
 	height: var(--img-size);
 	transition: top 0.25s;
+	z-index: 2;
 }
 
 .slide-number::before {

@@ -1,0 +1,62 @@
+.tooltip:has(.bubble__bg) {
+	--pad: 2rem;
+
+	padding: var(--pad);
+}
+
+.bubble__bg {
+	--r: 1.5rem;
+	--b: 3em; /* base */
+	--h: var(--b); /* height */
+	--p: calc(0% + 3rem); /* position */
+	--x: calc(
+		var(--b) / -2
+	); /* tail position (relative to the main position). Can be percentage */
+	--_e: max(0%, -1 * var(--x) - var(--p), var(--x) + var(--p) - 100%);
+
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	opacity: 0.5;
+	border-radius: var(--r) var(--r) min(var(--r), 100% - var(--p) - var(--b) / 2)
+		min(var(--r), var(--p) - var(--b) / 2) / var(--r);
+	background: 50% 0 / calc(100% + 2 * var(--_e)) calc(100% + var(--h))
+		radial-gradient(
+			circle var(--pos, at left bottom),
+			hsl(from var(--violet-500) h s l / 1) 0%,
+			hsl(from var(--cyan-500) h s l / 1) 100%
+		);
+
+	&:before {
+		content: "";
+		position: absolute;
+		padding-inline: var(--_e);
+		background-image: inherit;
+
+		inset: 0 calc(-1 * var(--_e)) calc(-1 * var(--h));
+		clip-path: polygon(
+				50% 50%,
+				clamp(var(--b), var(--p) + var(--b) / 2, 100%) calc(100% - var(--h)),
+				calc(var(--p) + var(--x)) 100%,
+				clamp(0%, var(--p) - var(--b) / 2, 100% - var(--b))
+					calc(100% - var(--h))
+			)
+			content-box;
+	}
+}
+
+.bubble__bg.right {
+	--p: calc(100% - 3rem); /* position */
+	--x: calc(var(--b) / 2);
+
+	&:before {
+		inset: calc(-1 * var(--h)) calc(-1 * var(--_e)) 0;
+		clip-path: polygon(
+				50% 50%,
+				clamp(var(--b), var(--p) + var(--b) / 2, 100%) var(--h),
+				calc(var(--p) + var(--x)) 0,
+				clamp(0%, var(--p) - var(--b) / 2, 100% - var(--b)) var(--h)
+			)
+			content-box;
+	}
+}
