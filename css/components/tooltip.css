@@ -103,8 +103,9 @@
 
 .tooltip__ttl {
 	font-size: var(--fs-md);
-	font-weight: var(--fw-bd);
+	font-weight: var(--fw-sb);
 	margin-block: -0.5rem 0.5rem;
+	color: #cdbdff;
 }
 
 .tooltip__img {

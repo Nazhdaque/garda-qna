@@ -1,31 +1,67 @@
 .tooltip:has(.bubble__bg) {
 	--pad: 2rem;
+	--tail-pos: 3.75rem;
 
 	padding: var(--pad);
+	display: grid;
+	grid-template-columns: min-content auto;
+	column-gap: 2rem;
+
+	/* .tooltip__content {
+		place-self: center;
+	} */
+
+	.mark {
+		--lh: 0.75;
+		--deg: 120deg;
+
+		background-image: linear-gradient(
+			var(--deg),
+			var(--cyan-300) 0%,
+			var(--violet-300) var(--end, 100%)
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		display: grid;
+		place-items: start center;
+		font-weight: var(--fw-eb);
+		font-size: var(--fs-5xl);
+		width: calc(1em * var(--lh) + (1em * var(--lh) - 1em));
+		line-height: var(--lh);
+		margin-top: -3.25%;
+
+		&.exclamation {
+			--end: 66%;
+		}
+	}
 }
 
 .bubble__bg {
+	--pos: at right bottom;
 	--r: 1.5rem;
-	--b: 3em; /* base */
+	--b: 3rem; /* base */
 	--h: var(--b); /* height */
-	--p: calc(0% + 3rem); /* position */
+	--p: calc(0% + var(--tail-pos)); /* position */
 	--x: calc(
 		var(--b) / -2
 	); /* tail position (relative to the main position). Can be percentage */
 	--_e: max(0%, -1 * var(--x) - var(--p), var(--x) + var(--p) - 100%);
+	--gradient: radial-gradient(
+		circle var(--pos, at left bottom),
+		hsl(from var(--violet-500) h s l / 1) 6%,
+		hsl(from var(--cyan-500) h s l / 1) 66%
+	);
 
 	position: absolute;
 	inset: 0;
 	z-index: -1;
-	opacity: 0.5;
+	opacity: 0.33;
 	border-radius: var(--r) var(--r) min(var(--r), 100% - var(--p) - var(--b) / 2)
 		min(var(--r), var(--p) - var(--b) / 2) / var(--r);
 	background: 50% 0 / calc(100% + 2 * var(--_e)) calc(100% + var(--h))
-		radial-gradient(
-			circle var(--pos, at left bottom),
-			hsl(from var(--violet-500) h s l / 1) 0%,
-			hsl(from var(--cyan-500) h s l / 1) 100%
-		);
+		var(--gradient);
 
 	&:before {
 		content: "";
@@ -43,20 +79,24 @@
 			)
 			content-box;
 	}
-}
 
-.bubble__bg.right {
-	--p: calc(100% - 3rem); /* position */
-	--x: calc(var(--b) / 2);
+	&.right {
+		--pos: at right top;
+		--p: calc(100% - var(--tail-pos));
+		--x: calc(var(--b) / 2);
 
-	&:before {
-		inset: calc(-1 * var(--h)) calc(-1 * var(--_e)) 0;
-		clip-path: polygon(
-				50% 50%,
-				clamp(var(--b), var(--p) + var(--b) / 2, 100%) var(--h),
-				calc(var(--p) + var(--x)) 0,
-				clamp(0%, var(--p) - var(--b) / 2, 100% - var(--b)) var(--h)
-			)
-			content-box;
+		background: 50% 100% / calc(100% + 2 * var(--_e)) calc(100% + var(--h))
+			var(--gradient);
+
+		&:before {
+			inset: calc(-1 * var(--h)) calc(-1 * var(--_e)) 0;
+			clip-path: polygon(
+					50% 50%,
+					clamp(var(--b), var(--p) + var(--b) / 2, 100%) var(--h),
+					calc(var(--p) + var(--x)) 0,
+					clamp(0%, var(--p) - var(--b) / 2, 100% - var(--b)) var(--h)
+				)
+				content-box;
+		}
 	}
 }

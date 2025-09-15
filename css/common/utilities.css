@@ -160,8 +160,6 @@
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-
-	filter: drop-shadow(1px 1px 1px var(--graphit-700));
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| display */
