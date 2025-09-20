@@ -1,5 +1,7 @@
 .bg-solid {
-	background-color: var(--graphit-700);
+	background: var(--graphit-700) url(/public/images/checkbox-bg.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
 	overflow: hidden;
 	position: absolute;
 	inset: 0;
@@ -64,7 +66,7 @@
 	&::before {
 		--size: 30rem;
 
-		bottom: calc(var(--size) * -0.9);
+		bottom: calc(var(--size) * -1);
 		left: calc(var(--size) * 1.2);
 		background: var(--glow-bottom);
 	}

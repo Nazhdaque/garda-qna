@@ -1,10 +1,8 @@
-.beam-1,
-.beam-2 {
+.beam-left {
 	overflow: hidden;
 	z-index: -1;
 }
-.beam-1::after,
-.beam-2::after {
+.beam-left::after {
 	position: absolute;
 	content: "";
 	width: 100%;
@@ -13,35 +11,13 @@
 	backdrop-filter: contrast(1.25) brightness(1.25);
 }
 
-.beam-1::after {
+.beam-left::after {
 	top: -3%;
 	left: -0.25%;
-	clip-path: polygon(0% 0%, 56% 100%, 11% 100%);
+	clip-path: polygon(0% 0%, 60% 100%, 12% 100%);
 	background-image: linear-gradient(
 		180deg,
 		hsl(from var(--cyan-500) h s l / 0.33) 20%,
 		hsl(from var(--violet-500) h s l / 0.66) 60%
-	);
-
-	/* top: -17%;
-	left: 0%;
-	clip-path: polygon(0% 0%, 44% 100%, 0% 100%);
-	background-image: linear-gradient(
-		180deg,
-		hsl(from var(--cyan-500) h s l / 0.33) 20%,
-		hsl(from var(--violet-500) h s l / 0.66) 60%
-	); */
-}
-
-/* -1% -5%, 35% 70%, 10% 80% */
-
-.beam-2::after {
-	top: 0;
-	right: 0;
-	clip-path: polygon(105% -5%, 0% 45%, 25% 100%);
-	background-image: linear-gradient(
-		to left,
-		hsl(from var(--cyan-500) h s l / 0.5) 20%,
-		hsl(from var(--violet-500) h s l / 1) 60%
 	);
 }

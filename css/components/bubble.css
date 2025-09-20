@@ -6,10 +6,15 @@
 	display: grid;
 	grid-template-columns: min-content auto;
 	column-gap: 2rem;
+	backdrop-filter: blur(10px);
 
 	/* .tooltip__content {
 		place-self: center;
 	} */
+
+	.tooltip__ttl {
+		color: #cdbdff;
+	}
 
 	.mark {
 		--lh: 0.75;
@@ -39,6 +44,9 @@
 }
 
 .bubble__bg {
+	--custom-violet: #5b377a;
+	--custom-cyan: #006399;
+
 	--pos: at right bottom;
 	--r: 1.5rem;
 	--b: 3rem; /* base */
@@ -50,8 +58,8 @@
 	--_e: max(0%, -1 * var(--x) - var(--p), var(--x) + var(--p) - 100%);
 	--gradient: radial-gradient(
 		circle var(--pos, at left bottom),
-		hsl(from var(--violet-500) h s l / 1) 6%,
-		hsl(from var(--cyan-500) h s l / 1) 66%
+		hsl(from var(--violet-500) h s l / 1) 20%,
+		hsl(from var(--cyan-500) h s l / 1) 80%
 	);
 
 	position: absolute;
