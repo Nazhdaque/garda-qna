@@ -1,0 +1,70 @@
+.img-maker {
+	--overlay-x: linear-gradient(
+		90deg,
+		hsl(from var(--graphit-700) h s l / 0.66) 0%,
+		hsl(from var(--graphit-700) h s l / 0) 66%
+	);
+	--overlay-y: linear-gradient(
+		0deg,
+		hsl(from var(--graphit-700) h s l / 0.66) 0%,
+		hsl(from var(--graphit-700) h s l / 0) 33%
+	);
+	--mod: 1;
+	/* --img-flip-x: scaleX(calc(var(--scale, 1) * -1)) scaleY(var(--scale, 1)); */
+
+	font-size: calc(var(--mod) * 1rem);
+	width: calc(var(--mod) * 700px);
+	aspect-ratio: 7 / 5;
+	padding: 1.75em;
+	position: relative;
+	display: grid;
+	grid-template-columns: min-content auto;
+	grid-template-rows: min-content auto;
+	grid-template-areas:
+		"label ."
+		"title title";
+
+	&::before {
+		position: absolute;
+		inset: 0;
+		content: "";
+		background-image: var(--overlay-x, none), var(--overlay-y, none);
+	}
+	&::after {
+		position: absolute;
+		inset: 0;
+		content: "";
+		background-image: url(/images/img-070.png);
+		background-position: 50% center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		z-index: -1;
+		transform: var(--img-flip-x, none);
+	}
+
+	.label {
+		--bw: calc(var(--mod) * 2px);
+
+		font-size: 1em;
+		grid-area: label;
+		font-weight: var(--fw-sb);
+	}
+
+	.card-ttl {
+		font-size: 2em;
+		row-gap: 0.4em;
+		/* bottom: 2%; */
+		font-weight: var(--fw-bd);
+		line-height: 1.1;
+		grid-area: title;
+		display: grid;
+		grid-template-rows: repeat(2, min-content);
+		place-self: end start;
+		position: relative;
+	}
+
+	.card-sub {
+		font-size: 0.775em;
+		font-weight: var(--fw-lt);
+	}
+}

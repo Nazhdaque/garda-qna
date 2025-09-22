@@ -8,11 +8,11 @@
 :root {
 	--ff-rg: "Geologica", sans-serif;
 
-	/* --fw-tn: 100; */
-	/* --fw-el: 200; */
+	--fw-tn: 100;
+	--fw-el: 200;
 	--fw-lt: 300;
-	/* --fw-rg: 400; */
-	/* --fw-md: 500; */
+	--fw-rg: 400;
+	--fw-md: 500;
 	--fw-sb: 600;
 	--fw-bd: 700;
 	--fw-eb: 800;
